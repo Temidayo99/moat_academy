@@ -21,7 +21,9 @@
                         <input type="text" name="search" id="frontsearchbar" class="form-control" style="margin-top:100px;" placeholder="Search for a disease name (e.g. malaria)"/>
 
                     
-                        <button class="btn btn-outline-success justify-item-md-end mt-md-2" type="submit" >Search</button>
+                        <div>
+                            <button class="btn btn-outline-success fluid-md-end mt-md-2" type="submit" >Search</button>
+                        </div>
                     </form>
                     
                 </div>
