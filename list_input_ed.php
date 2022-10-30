@@ -5,10 +5,9 @@
 <head>
     <link rel="stylesheet" href="admin_dashboard.css">
 </head>
-    
 
 <main>
-<div class="container-fuid">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-1 bg-warning" id="sidenav">
                 <ul>
@@ -19,24 +18,19 @@
                     <li class="text-center"><a href="list_editors.php"><strong>View Editors</strong></a></li>
                 </ul>
         </div>
-        <div class="col-md-11 table-responsive-md">
-
-        <?php 
-        // var_dump($_POST);
-        // var_dump($_SESSION);
-        ?>
-            <table class="table table-md table-hover table-striped table-active caption-top table-bordered">
-                <caption class="text-center">List of all Recorded Cases </caption>
-                <thead class= "table-light">
-                    <tr class="text-center">
-                        <th scope="col">No.</th>
-                        <th scope="col">Disease Name</th>
-                        <th scope="col">Country</th>
-                        <th scope="col">State</th>
-                        <th scope="col">Local Government</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Comment</th>
-                        <th scope="col">Action</th>
+       <div class="col-md-11">
+       <table class="table table-bordered table-hover table-striped">
+                <h3>List of inputs </h3>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Disease Name</th>
+                        <th>Country</th>
+                        <th>State</th>
+                        <th>Local Government</th>
+                        <th>Status</th>
+                        <th>Comment</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,29 +44,32 @@
                         // reference the method to get the list
                         // $listR = $obj->listRecordedCases();
 
-                        $listR = $obj->listRecordedCases();
+                        // here I want to have the id of the editors/users and pass it to fetch the whole data
+                        $listEditors = $obj->listEditors();
+                        foreach ($listEditors as $key => $value){
+
+                        $listR = $obj->listRecordedCasesByUser($value['editor_id']);
+                        }
                         // i dunno what to do
                         // loop thrugh the array
 
 
                         if (count($listR) > 0){
-                            $number = 0;
                             foreach ($listR as $key => $value){
                                 $listId = $value['rd_id'];
-                                $number++;
                            
                     
                         
                     ?>
                     <tr>
-                        <th scope="row"> <?php echo $number.'.'; ?></th>
+                        <td> <?php echo $listId ?></td>
                         <td><?php echo $value['disease_name'] ?></td>
                         <td><?php echo $value['country_name'] ?></td>
                         <td><?php echo $value['state_name'] ?></td>
                         <td><?php echo $value['lga_name'] ?></td>
-                        <td><?php echo ucfirst($value['rd_status']); ?></td>
-                        <td><?php echo ucfirst($value['rd_comment']); ?></td>
-                        <td colspan="5"><a href="edit_input.php?rd_id=<?php echo $listId ?>"><span class="text-info">Edit</span></a> | <a href="delete_input.php?rd_id=<?php echo $listId ?>"><span class="text-danger">Delete</span></a></td>
+                        <td><?php echo $value['rd_status'] ?></td>
+                        <td><?php echo $value['rd_comment'] ?></td>
+                        <td><a href="edit_input.php?rd_id=<?php echo $listId ?>">Edit</a> | <a href="delete_input.php?rd_id=<?php echo $listId ?>">Delete</a></td>
                     </tr>
 
                     <?php
@@ -81,6 +78,8 @@
                     ?>
                 </tbody>
             </table>
+       </div>
+            
         </div>
     </div>
 </div>

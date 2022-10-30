@@ -1,18 +1,25 @@
 <?php
-    include_once('editor_user_header.php');
+    include_once('editor_newheader.php');
     // include_once('dashboard.php');
 ?>
+<head>
+    <link rel="stylesheet" href="admin_dashboard.css">
+</head>
 
 <main>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-8">
-
-        <?php 
-        // var_dump($_POST);
-        // var_dump($_SESSION);
-        ?>
-            <table class="table table-bordered table-hover table-striped">
+        <div class="col-md-1 bg-warning" id="sidenav">
+                <ul>
+                    <li class="text-center"><a href="add_input.php"><strong> New Entry</strong></a></li>
+                    <hr>
+                    <li class="text-center"><a href="list_input.php"><strong>View my Entries</strong></a></li>
+                    <hr>
+                    <li class="text-center"><a href="list_editors.php"><strong>View Editors</strong></a></li>
+                </ul>
+        </div>
+       <div class="col-md-11">
+       <table class="table table-bordered table-hover table-striped">
                 <h3>List of inputs </h3>
                 <thead>
                     <tr>
@@ -66,6 +73,8 @@
                     ?>
                 </tbody>
             </table>
+       </div>
+            
         </div>
     </div>
 </div>

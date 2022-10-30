@@ -1,44 +1,8 @@
     <?php 
     
-    include_once("header.php");
+        include_once("newheader.php");
+    
     ?>
-
-<?php 
-   
-    if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['search'] != '') {
-
-      $query = $_GET['search'];
-                    // validate input
-                
-                    // sanitize input
-        function sanitizeInput($data){
-            $data = trim($data);
-            $data = htmlspecialchars($data);
-            $data = addslashes($data);
-            $data = stripslashes($data);
-                            
-            return $data;
-        }
-
-        $query = sanitizeInput($query);
-            
-        // include shared folder
-        include_once("csl.php");
-        
-        //create object of the user class
-            
-        $obj = new Country();
-                    
-        //access insert user
-        
-        $output = $obj->Search($query);
-    }else{
-        //echo '<script>alert("No way")</script>';
-        header("Location:index.php");
-        
-    }
-       
-?>
 
 <style>
     main{
@@ -48,13 +12,13 @@
 
 
 <main>
-    <h2> Results</h2>
+    <h2 class="text-center"> Results of <?php echo ucfirst($_GET['search']); ?> Search</h2>
 
    
 
     <table class="table table-bordered table-responsive-md table-active table-striped table-hover">
         <thead>
-            <th>No</th>
+            <th>No.</th>
             <th>Disease</th>
             <th>Country</th>
             <th>State</th>
@@ -63,42 +27,47 @@
             <th>Comment</th>
         </thead>
         <tbody>
-            <?php   
+            <?php 
+                if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['search'] != '') {
+                    //var_dump($_GET['search']);
+                $query = $_GET['search'];
+                                // validate input
+                
+                                // sanitize input        
+                $query = sanitizeInput($query);
+                
+                // include function
+                include_once("csl.php");
+                            
+                //create object of the user class
+                $obj = new Country();
+                            
+                //access search method from the class
+                //var_dump($query);
+                $output = $obj->Search($query);   
+                }else{  
+                    header("Location:index.php");
+                } 
+
                 $number = 0;
                 foreach ($output as $key => $value){
-                    $number++;
-                    
-        
+                   $number++;
+                
             ?>
+            
             <tr>
-                <td> 
-                    <?php 
-                      
-                       //while (count($output) >= $number){   
-                        echo $number."."; 
-                        
-                        
-                        
-                    //} 
-                
-                    ?> 
-
-                </td>
-                <td> <?php echo $value['disease_name']; ?> </td>
-                <td> <?php echo $value['country_name']; ?> </td>
-                <td> <?php echo $value['state_name']; ?> </td>
-                <td> <?php echo $value['lga_name']; ?> </td>
-                <td> <?php echo ucfirst($value['rd_status']); ?> </td>
-                <td> <?php echo ucfirst($value['rd_comment']); ?> </td>
-
-            <?php 
-                    
-                //continue; 
-                } 
-            ?>
-                
+                <td> <?php echo $number."." ?> </td>
+                <td> <?php echo $value['disease_name'] ?> </td>
+                <td> <?php echo $value['country_name'] ?> </td>
+                <td> <?php echo $value['state_name'] ?> </td>
+                <td> <?php echo $value['lga_name'] ?> </td>
+                <td> <?php echo ucfirst($value['rd_status']) ?> </td>
+                <td> <?php echo ucfirst($value['rd_comment']) ?> </td>  
             </tr>
-           
+            
+            <?php 
+                }
+            ?>
         </tbody>
     </table>
     

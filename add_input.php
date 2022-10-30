@@ -1,5 +1,8 @@
+<head>
+    <link rel="stylesheet" href="admin_dashboard.css">
+</head>
 <?php
-    include_once("editor_user_header.php");
+    include_once('editor_newheader.php');
 
     // let's check if the add button is clicked 
     if (isset($_POST['addNewInput'])){
@@ -55,22 +58,6 @@
 
     $disease = $obj->getDisease();
 
-    
-
-        // echo "<pre>";
-        // print_r ($country);
-        // echo "</pre>";
-
-    // var_dump($_POST);
-    // var_dump($_REQUEST);
-    // var_dump($_SESSION);
-        // $diseaseId = $_POST['disease_name'];
-        // $editorId = $_SESSION['editor_id'];
-        // $lgaId = $_POST['lga'];
-        // $stateId = $_POST['state'];
-        // $countryId = $_POST['country'];
-        // $status = $_POST['status'];
-        // $comment = sanitizeInput($_POST['comment']);
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // include the csl file which contains the functions 
@@ -102,6 +89,15 @@
 
     <div class="container-fluid">
         <div class="row">
+        <div class="col-md-1 bg-warning" id="sidenav">
+                <ul>
+                    <li class="text-center"><a href="add_input.php"><strong> New Entry</strong></a></li>
+                    <hr>
+                    <li class="text-center"><a href="list_input.php"><strong>View my Entries</strong></a></li>
+                    <hr>
+                    <li class="text-center"><a href="list_editors.php"><strong>View Editors</strong></a></li>
+                </ul>
+        </div>
             <!-- check if the error conditions set above are not triggered -->
             <?php
                 if(!empty($errors)){
@@ -112,12 +108,13 @@
                     echo "</ul>";
                 }
             ?>
-            <div class="col-md-6" style="margin:auto; background:brown;">
+            <div class="col-md-8" style="margin:auto;">
                 <div style="margin:auto">
 
                     
                     <form action="" method="post" >
                         <h2 style="text-align: center;" class="mt-md-3">Add new input</h2>
+                        <!-- <caption class="caption-top text-center">Add new Input</caption> -->
                         <div>
                             <label class="label-control mt-md-3">Disease name: </label>
                             <select name="disease_name" id="disease_name" class="form-select mt-md-2" required>

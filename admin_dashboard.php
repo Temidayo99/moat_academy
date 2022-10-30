@@ -14,6 +14,10 @@
             color:brown; 
             font-size: 20px;
         }
+
+        #menu ul li a{
+        color: beige;
+    }
     </style>
 </head>
 
@@ -24,11 +28,11 @@
 <main>
     <div class="cointainer fluid flex-column">
         <div class="row">
-            <div class="col-md-3" id="menu">
+            <div class="col-md-3 bg-secondary" id="menu">
                 <ul>
                     <li><a href="add_input.php">New Entry</a></li>
-                    <li><a href="list_input.php">View Entry</a></li>
-                    <li><a href="view_editors.php">View Editors</a></li>
+                    <li><a href="list_input.php">View Recorded Cases</a></li>
+                    <li><a href="view_editors.php">View Registered Users</a></li>
                 </ul>
             </div>
             

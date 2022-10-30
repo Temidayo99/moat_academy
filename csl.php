@@ -166,7 +166,7 @@
 		// begin get input - list diseases
 		function listRecordedCases(){
 			// use prepare statement
-			$statement = $this->conn->prepare("SELECT * FROM reported_cases JOIN disease on reported_cases.disease_id = disease.disease_id JOIN lga on reported_cases.lga_id = lga.lga_id JOIN country on reported_cases.country_id = country.country_id JOIN state on reported_cases.state_id=state.state_id"  );
+			$statement = $this->conn->prepare("SELECT * FROM reported_cases JOIN disease on reported_cases.disease_id = disease.disease_id JOIN lga on reported_cases.lga_id = lga.lga_id JOIN country on reported_cases.country_id = country.country_id JOIN state on reported_cases.state_id=state.state_id");
 
 			// execute
 			$statement->execute();
@@ -272,7 +272,7 @@
 		// end count of registered users
 
 		// start delete users
-		function deleteUser(){
+		public function deleteUser(){
 			$stmt=$this->conn->prepare("DELETE FROM editor WHERE editor_id=?");
 
 			// bind params
@@ -287,7 +287,7 @@
 
 		// start count cases
 
-		function countRecordedCases(){
+		public function countRecordedCases(){
 			$stmt = $this->conn->prepare("SELECT rd_id FROM reported_cases");
 
 			// execute params
@@ -310,8 +310,8 @@
 
 		// end count cases
 
-		function Search($query){
-			$stmt = $this->conn->prepare("SELECT * FROM reported_cases JOIN disease on reported_cases.disease_id = disease.disease_id JOIN lga on reported_cases.lga_id = lga.lga_id JOIN country on reported_cases.country_id = country.country_id JOIN state on reported_cases.state_id=state.state_id WHERE (disease.disease_name LIKE '%.$query.%') ");
+		public function Search($query){
+			$stmt = $this->conn->prepare("SELECT * FROM reported_cases JOIN disease ON reported_cases.disease_id = disease.disease_id JOIN lga ON reported_cases.lga_id = lga.lga_id JOIN country ON reported_cases.country_id = country.country_id JOIN state ON reported_cases.state_id=state.state_id WHERE (disease.disease_name LIKE '%$query%') ");
 
 			// execute statment
 			$stmt->execute();
@@ -324,10 +324,31 @@
             if ($result->num_rows>0){
                 while($row = $result->fetch_assoc()){
                     $records[]=$row;
-                };
+                }
             }
-            return $records;
+			return $result;
 		}
+
+		// start list editors
+		public function listEditors(){
+			$stmt = $this->conn->prepare("SELECT * FROM editor");
+
+			// execute statment
+			$stmt->execute();
+
+			// get result
+			$result = $stmt->get_result();
+
+			// fetch result
+			$records = array();
+            if ($result->num_rows>0){
+                while($row = $result->fetch_assoc()){
+                    $records[]=$row;
+                }
+            }
+			return $result;
+		}
+		// end list editors
 	}
 
 	
