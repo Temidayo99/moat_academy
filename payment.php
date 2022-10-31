@@ -7,7 +7,7 @@
         $name = $_POST['name'];
         $secret_key = "FLWSECK_TEST-670a3122cb51b60332fbf6a98bfd6378-X"; //flutterwave secret key
         $trx_ref = "TRX_".rand(1,6).'DNT'.time(); //reference number
-        $redirect_url = "payment_process.php";
+        $redirect_url = "http://localhost/project/payment_process.php"; 
         $title = "Donation";
 
 //    prepare flutterwave request
