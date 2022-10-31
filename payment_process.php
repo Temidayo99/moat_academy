@@ -44,7 +44,7 @@
             // echo $response;
             // echo "</pre>";
 
-            print_r($response);
+           // print_r($response);
 
             if($resp->status == 'success'){
                 if($resp->data->charged_amount >= $resp->data->meta->price){
