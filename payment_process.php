@@ -48,6 +48,20 @@
 
             if($resp->status == 'success'){
                 if($resp->data->charged_amount >= $resp->data->meta->price){
+
+                    //now that it confirms that all is correct, I will add the information gotten into the database
+                    //since the server has been inititated above, i will include the class and call the function created 
+                    include_once "csl.php";
+                    $donate_insert = new Country;
+
+                    //call the function
+                    $donate_insert->insertDonation($name, $phone_number, $email, $amount, $tx_id, $trx_ref);
+
+                    //check if insertion is successful
+                    if($donate_insert == false){
+                        $error = "<div style='color:red'>Error inserting details</div>";
+                    }
+                    //then, go ahead and confirm successful transaction
                     echo "Donation completed successfully. Thank you!";
                 }else{
                     echo "Fraud Detected!!!";
@@ -56,5 +70,6 @@
                 echo "Donation cannot be processed successfully";
             }
         }
+
     }
 ?>
