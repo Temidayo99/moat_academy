@@ -351,12 +351,12 @@
 		// end list editors
 
 		// start insert into donation
-		public function insertDonation($name, $phone, $email, $amount, $trx_id, $ref){
+		public function insertDonation($name, $phone, $email, $amount, $transaction_id, $tx_ref){
 			$statement = $this->conn->prepare("INSERT INTO donation(name, phone, email, amount, transaction_id, transaction_ref) VALUES(?,?,?,?,?,?)");
 
 			// bind parameters
 
-			$statement->bind_param("sssiss", $name, $phone, $email, $amount, $transaction_id, $transaction_ref);
+			$statement->bind_param("sssiss", $name, $phone, $email, $amount, $transaction_id, $tx_ref);
 
 			//execute statment
 			$statement->execute();
