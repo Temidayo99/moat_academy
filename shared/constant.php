@@ -1,13 +1,14 @@
 <?php
     // database connection constants
 
-	define("DB_HOST", "localhost");
-	define("DB_USERNAME", "root");
-	define("DB_PASSWORD", "");
-	define("DB_DATABASENAME", "healthcare");
+	define("DB_HOST", "192.3.204.226");
+	define("DB_USERNAME", "temidevc_temitope_1");
+	define("DB_PASSWORD", "wanqi9-fyncEx-rynraj");
+	define("DB_DATABASENAME", "temidevc_healthcare");
 
 
 	// application name
 
 	define("APP_NAME", "DiseaseBurden APP");
 ?>
+
