@@ -32,7 +32,7 @@
 
     <navigation>
         <div class="container-fluid">
-            <div class="row">
+            <div class="row border-bottom border-success">
                 <div class="col-md-2">
                     <a href="index.php">
                         <img src="pictures/logo.svg" alt="logo" class="image-fluid" />
@@ -53,6 +53,7 @@
         </div>
         
     </navigation>
+
 
     <?php 
          function sanitizeInput($data){

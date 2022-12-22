@@ -4,6 +4,16 @@
 ?>
 <head>
     <title>Sign Up</title>
+    <style>
+    .box{
+        width: 300px;
+    }
+    @media screen and (min-width: 768px) {
+		.box{
+            width: 400px;
+        }
+	}
+</style>
 </head>
 
 
@@ -35,11 +45,11 @@
         }
     ?>
 
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-md-6" style="margin: auto;height:auto">
+            <div class="col-md-6 mt-5 mb-4 box" style="margin: auto;height:auto;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;border-radius:10px;">
 
-                <form method="POST" action="">
+                <form method="POST" action="" class="px-3 px-md-4 py-3">
 
                     <h3 style="text-align: center;" class="mt-md-3 mb-md-3">Sign-up Form</h3>
 
@@ -52,42 +62,42 @@
                     ?>
                     <div class="control-group form-group">
                         <div class="controls">
-                            <input type="text" name="fname" id="fname" placeholder="Please, input your firstname" value="" class="form-control" required />
+                            <input type="text" name="fname" id="fname" placeholder="Input your firstname" value="" class="form-control" required />
                         </div>
                     </div>
 
                     <div class="control-group form-group">
-                        <div class="controls mt-md-3">
-                            <input type="text" name="lname" id="lname" placeholder="Please, input your lastname/surname" value="" class="form-control" required />
+                        <div class="controls mt-3">
+                            <input type="text" name="lname" id="lname" placeholder="Input your lastname/surname" value="" class="form-control" required />
                         </div>
                     </div>
 
                     <div class="control-group form-group">
-                        <div class="controls mt-md-3">
-                            <input type="tel" name="phone" id="phone" placeholder="Please, input your phone number" value="" class="form-control" required />
+                        <div class="controls mt-3">
+                            <input type="tel" name="phone" id="phone" placeholder="Input your phone number" value="" class="form-control" required />
                         </div>
                     </div>
 
                     <div class="control-group form-group">
-                        <div class="controls mt-md-3">
-                            <textarea type="text" name="address" id="address" placeholder="Please, input your address" value="" class="form-control" required></textarea>
+                        <div class="controls mt-3">
+                            <input type="email" name="email" id="email" placeholder="Input your email address" value="" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="control-group form-group">
-                        <div class="controls mt-md-3">
-                            <input type="email" name="email" id="email" placeholder="Please, input your email address" value="" class="form-control" required>
+                        <div class="controls mt-3">
+                            <input type="password" name="password" id="password" placeholder="Input your preferred password" value="" class="form-control" required />
                         </div>
                     </div>
 
                     <div class="control-group form-group">
-                        <div class="controls mt-md-3">
-                            <input type="password" name="password" id="password" placeholder="Please, input your preferred password" value="" class="form-control" required />
+                        <div class="controls mt-3">
+                            <textarea type="text" name="address" id="address" placeholder="Input your address" value="" class="form-control" required></textarea>
                         </div>
                     </div>
 
                     <div class="control-group form-group">
-                        <div class="controls mt-md-3 mb-md-3">
+                        <div class="controls mt-3 mb-3">
                             <input type="submit" name="submit" id="btnSignUp" value="Sign Up" class="form-control btn btn-outline-success mb-md-3"/>
                         </div>
                     </div>

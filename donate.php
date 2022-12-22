@@ -1,10 +1,20 @@
 <?php
     include_once ('newheader.php');
 ?>
-<div class="container-fluid">
+<style>
+    .box{
+        width: 300px;
+    }
+    @media screen and (min-width: 768px) {
+		.box{
+            width: 400px;
+        }
+	}
+</style>
+<div class="container" style="min-height:450px">
     <div class="row">
-        <div class="col-md-8">
-            <form action="payment.php" method="post">
+        <div class="col-md-6 mt-5 py-4 box" style="margin: auto;height:auto;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;border-radius:10px;">
+            <form action="payment.php" method="post" class="px-3 px-md-4 py-3">
                 <div>
                     <label for=""> Name of Donor:</label>
                     <input type="text" name="name"  class="form-control text-md-center">
@@ -25,7 +35,7 @@
                     <input type="number" name="phone" class="form-control" >
                 </div>
 
-                <input type="submit" name="pay" class="form">
+                <input type="submit" name="pay" class="form mt-3 btn btn-success">
             </form>
         </div>
 

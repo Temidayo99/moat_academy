@@ -1,13 +1,10 @@
 <style>
-#sm li{
-    list-style-type: none;
+#sm .links{
     display: inline-block;
-    padding-left: 5px;
-    /* flex: auto;
-    flex-direction: row; */
-}
+    /* padding-right: 10px; */
+} 
 
-#sm li a{
+#sm a{
     text-decoration: none;
     color: #000;
     font-size: 20px;
@@ -16,7 +13,13 @@
 
 #hrLine{
     color: #000;
-    width: 450px; 
+    /* width: 450px;  */
+}
+@media screen and (min-width: 767px) {
+    #hrLine{
+        /* color: #000; */
+        width: 450px; 
+    }
 }
 </style>
 
@@ -30,16 +33,21 @@
                         <hr id="hrLine"/>
                     </div>
                 
-                    <div class="col-md-12  text-md-center">
-                        <ul id="sm">
-                            <i class="fa-brands fa-github"></i>
-                            <li><a href="https://github.com/topinsn">Github</a></li>
-                            
-                            <i class="fa-brands fa-twitter"></i>
-                            <li><a href="https://twitter.com/topinsn">Twiter</a></li>
-                            <i class="fa-brands fa-linkedin"></i>
-                            <li><a href="https://www.linkedin.com/in/topeoyelami/">LinkedIn</a></li>
-                        </ul>
+                    <div class="col-md-12 text-center">
+                        <div id="sm" class="mb-2">
+                            <div class="links git">
+                                <i class="fa-brands fa-github"></i>
+                                <a href="https://github.com/topinsn">Github</a>
+                            </div>
+                            <div class="links twitter">
+                                <i class="fa-brands fa-twitter"></i>
+                                <a href="https://twitter.com/topinsn">Twitter</a>
+                            </div>
+                            <div class="links">
+                                <i class="fa-brands fa-linkedin"></i>
+                                <a href="https://www.linkedin.com/in/topeoyelami/">LinkedIn</a>
+                            </div>
+                    </div>               
 
                         <span> All rights reserved. &copy; Qi-Wang <?php $year = 2022; echo $year?> - <?php $newYear = date('Y'); echo $newYear; ?> </span>
                     </div>

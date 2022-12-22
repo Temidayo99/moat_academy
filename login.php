@@ -3,20 +3,25 @@
 ?>
 <style>
 	#box{
-		min-height: 450px;
+		width: 300px;
+		min-height: 0px;
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+		border-radius: 10px;
+	} 
+	.git, .twitter{
+		padding-right: 7px;
 	}
-
 	#vertical_line{
-		height: 300px;
-        border-right: 1px solid #000;
-        right: 50%;
-		padding: 10px;
+		display: none;
 	}
 
+	.signUp, .admin{
+		font-size: 12px;
+	}
 	#adminLogin a, #call2action a{
 		color:red;
 		text-decoration: none;
-		font-size: 20px;
+		font-size: 15px;
 	}
 
 	p, legend{
@@ -25,6 +30,17 @@
 
 	legend{
 		font-size: 29.2px;
+	}
+
+	@media screen and (min-width: 768px) {
+		#box{
+			min-height: 200px;
+			width: 650px;
+		}
+		#vertical_line{
+			display: unset;
+			height: 200px;
+		}
 	}
 	
 </style>
@@ -53,30 +69,35 @@
 }
 
 ?>
-<div style="min-height: 30px;">
+<!-- <div style="min-height: 30px;"> -->
 	<!-- <input type="button" value="Logout" class="btn btn-danger" href="logout.php"> -->
-</div>
-<div class="container-fluid" id="box">
-	<div class="row">
-		<div class="col-md-4 ms-md-2" id="vertical_line">
+<!-- </div> -->
+<main style="min-height: 400px;">
+<div class="container mt-5 mb-5 px-4 px-md-5 py-4 py-md-0" id="box">
+	<div class="d-md-flex flex-row justify-content-center align-items-center">
+		
+		<div class="py-md-4 col-md-6 d-flex flex-column">
 			<form action="" method="post">
 				<fieldset>
 					<legend class="text-center"><strong> Member Login </strong></legend>
 					<input type="email" name="email" placeholder="Email" class="form-control ">
-					<input type="password" name="password" placeholder="password" class="form-control mt-md-3 ">
-					<input type="submit" name="submit" value="Login" class="btn btn-success mt-3 ">
+					<input type="password" name="password" placeholder="password" class="form-control mt-3 ">
+					<input type="submit" name="submit" value="Login" class="btn btn-success mt-3">
 				</fieldset>
 			</form>
-			
 		</div>
-		<div class="col-md-4 mt-md-5" >
-			<p>If you are a new to this page, please <Span id="call2action"><a href="signup.php">signup here</a></Span></p>
+		<div id="vertical_line">
+		</div>
+
+		<div class="mt-4 mt-md-0 col-md-6 mx-auto d-flex flex-column text-md-center">
+			<p>If you are a new to this page, please <span id="call2action"><a href="signup.php">signup here</a></span></p>
 
 			<p>Admin, please <span id="adminLogin"><a href="admin_login.php">login here</a></span></p>
 			
 		</div>
 	</div>
 </div>
+</main>
 
 <?php 
 	include_once('footer.php');
